@@ -1,0 +1,5 @@
+[user]
+	email = joel.w.ottosson@gmail.com
+	name = allavinner
+[core]
+	excludesfile = ~/.config/git/.gitignore
