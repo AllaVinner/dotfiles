@@ -17,22 +17,11 @@ lazy.setup_plugins({
 	require("plugins.dap-ui").default,
 	require("plugins.conform").default,
 	-- require("plugins.tokyonight").default,
+	require("plugins.catppuccin").default,
 	require("plugins.todo-comments").default,
 	require("plugins.mini").default,
 	require("plugins.cmp").default,
 	require("plugins.lspconfig").default,
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				flavour = "frappe",
-				-- transparent_background = true,
-			})
-			vim.cmd.colorscheme("catppuccin")
-		end,
-	},
 })
 
 require("options.basic")
