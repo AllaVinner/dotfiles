@@ -118,4 +118,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_user_command("Cdhere", "cd %:h", {})
+vim.api.nvim_create_user_command("Cdn", "cd ~/.config/nvim", {})
+
 return m
