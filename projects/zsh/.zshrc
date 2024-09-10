@@ -1,5 +1,4 @@
 
-
 # Set up fzf key bindings and fuzzy completion
 
 eval "$(fzf --zsh)"
@@ -8,10 +7,16 @@ eval "$(starship init zsh)"
 export FZF_DEFAULT_COMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+# Uses neovim when reading `man`-pages
+# Not sure what `+Man!` does ... but makes it work.
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
+# export PAGER='nvim +Man!' # unset to make `bat` command look good.
+export EDITOR="nvim"
 
+export R_ENVIRON_USER="$HOME/.config/R/.Renviron"
 env_path="$HOME/.config/keys/openai.env"
+
 if test -f $env_path; then
     export $(grep -v '^#' $env_path | xargs -0)
 fi
@@ -19,8 +24,8 @@ fi
 alias n="nvim"
 alias n.="nvim ."
 alias nz="nvim ~/.zshrc"
-alias ni="nvim ~/.config/nvim/init.lua"
-alias nt="nvim ~/.config/tmux/tmux.conf"
+alias ni="nvim ~/.config/nvim/init.lua -c 'cd $HOME/.config/nvim'"
+alias nt="nvim ~/.config/tmux/tmux.conf -c 'cd $HOME/.config/tmux'"
 
 alias s="source"
 alias sz="source ~/.zshrc"
@@ -34,6 +39,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cdb="cd $OLDPWD"
+alias pecho="tr ':' '\n' <<< "
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
