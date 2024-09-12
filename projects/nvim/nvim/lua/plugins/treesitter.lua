@@ -1,9 +1,38 @@
+--[[ 
+`tree-sitter` is a tool that creates an abstract syntax tree of you code.
+People can then create parsers that uses that AST to, e.g., highlight stuff.
+`tree-sitter` can also incrementally update this tree, as a file gets updated.
+`nvim-treesitter` is a Neovim plugin which uses the `tree-sitter` interface.
+
+`nvim-treesitter` is based on three features
+- language parsers
+- queries
+- modules
+
+> [!Important]
+> **Modules** provide featuers - e.g. highlighting - 
+> based on **queries** for syntax objects 
+> extracted from a buffer by a **language parser**.
+
+Treesitter uses a different parser for every language.
+A parser is generated from a `tree-sitter-cli` and a `grammer.js` file,
+which are compiled to a `.so` library.
+This file must be place int eh neovim `runtimepath`, `.../parser/<language>.so`.
+This can be done with `:TSInstall <language>`.
+Run `:checkhelth treesitter`, to see which are where there parsers are installed.
+`TSInstallInfo` to get available parsers.
+The parser versions need to be in-sync with the `tree-sitter` version.
+Make sure of this with `:TSUpdate`.
+`TSMuduleInfo` gives you the state parsers.
+
+]]
+--
 return {
 	default = { -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "python" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {

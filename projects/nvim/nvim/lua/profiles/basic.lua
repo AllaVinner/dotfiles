@@ -2,6 +2,7 @@ local lazy = require("plugins.lazy")
 
 lazy.setup_plugins({
 	require("plugins.sleuth").default,
+	require("plugins.treesitter").default,
 	require("plugins.comment").default,
 	require("plugins.gitsigns").default,
 	require("plugins.which-key").default,
