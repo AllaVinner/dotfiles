@@ -4,9 +4,11 @@
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
 
-export FZF_DEFAULT_COMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS='--height 80% --tmux center,80% --layout reverse --border top'
+
 # Uses neovim when reading `man`-pages
 # Not sure what `+Man!` does ... but makes it work.
 export MANPAGER='nvim +Man!'
@@ -26,10 +28,13 @@ alias n.="nvim ."
 alias nz="nvim ~/.zshrc"
 alias ni="nvim ~/.config/nvim/init.lua -c 'cd $HOME/.config/nvim'"
 alias nt="nvim ~/.config/tmux/tmux.conf -c 'cd $HOME/.config/tmux'"
+alias nf="nvim \$(fzf)"
+alias nvimf="nvim \$(fzf)"
 
 alias s="source"
 alias sz="source ~/.zshrc"
 
+# Convinience aliases
 alias python="python3"
 alias ll="ls -l"
 alias ls="ls --color"
@@ -39,8 +44,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cdb="cd $OLDPWD"
-alias pecho="tr ':' '\n' <<< "
+alias pecho="tr ':' '\n' <<< $PATH" 
 
+# Auto added stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
