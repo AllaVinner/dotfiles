@@ -129,5 +129,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_user_command("Cdhere", "cd %:h", {})
 vim.api.nvim_create_user_command("Cdn", "cd ~/.config/nvim", {})
+vim.api.nvim_create_user_command("CmdOpen", function(input)
+	local args = input.args or ""
+	vim.cmd("new | r " .. args)
+end, { nargs = "?", desc = "Open result of command in new buffer" })
 
 return m
