@@ -13,11 +13,11 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 -- Remove the statusline
 vim.opt.laststatus = 0
+-- vim.opt.laststatus = 2
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
--- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
@@ -126,6 +126,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+-- Print contents of `tbl`, with indentation.
+-- `indent` sets the initial level of indentation.
+local function tprint(tbl, indent)
+	if not indent then
+		indent = 0
+	end
+	for k, v in pairs(tbl) do
+		local formatting = string.rep("  ", indent) .. k .. ": "
+		if type(v) == "table" then
+			print(formatting)
+			tprint(v, indent + 1)
+		elseif type(v) == "boolean" then
+			print(formatting .. tostring(v))
+		else
+			print(formatting .. v)
+		end
+	end
+end
 
 vim.api.nvim_create_user_command("Cdhere", "cd %:h", {})
 vim.api.nvim_create_user_command("Cdn", "cd ~/.config/nvim", {})

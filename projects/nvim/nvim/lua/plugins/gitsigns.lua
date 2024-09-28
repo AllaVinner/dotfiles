@@ -58,7 +58,7 @@ m.default = {
 				map("n", "<leader>gB", function()
 					gitsigns.blame_line({ full = true })
 				end, { desc = "[G]it [B]lame full" })
-				map("n", "<leader>gD", gitsigns.diffthis, { desc = "[G]it [D]Diff hunk" })
+				map("n", "<leader>gD", gitsigns.diffthis, { desc = "[G]it [D]iff" })
 				map("n", "<leader>gt", gitsigns.toggle_signs, { desc = "[G]it [T]oggle signs" })
 				-- map("n", "<leader>hD", function()
 				-- 	gitsigns.diffthis("~")
