@@ -146,10 +146,18 @@ local function tprint(tbl, indent)
 end
 
 vim.api.nvim_create_user_command("Cdhere", "cd %:h", {})
-vim.api.nvim_create_user_command("Cdn", "cd ~/.config/nvim", {})
-vim.api.nvim_create_user_command("CmdOpen", function(input)
+vim.api.nvim_create_user_command("Cdnvim", "cd ~/.config/nvim", {})
+vim.api.nvim_create_user_command("CapturePaste", function(input)
+	local args = input.args or ""
+	vim.cmd("r " .. args)
+end, { nargs = "?", desc = "Capture output of command and paste" })
+vim.api.nvim_create_user_command("CaptureHorizontal", function(input)
 	local args = input.args or ""
 	vim.cmd("new | r " .. args)
-end, { nargs = "?", desc = "Open result of command in new buffer" })
+end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
+vim.api.nvim_create_user_command("CaptureVertical", function(input)
+	local args = input.args or ""
+	vim.cmd("vnew | r " .. args)
+end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
 
 return m
