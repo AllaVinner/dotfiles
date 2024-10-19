@@ -81,10 +81,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
 -- error previous / next
-vim.keymap.set("n", "<leader>ep", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "<leader>en", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>em", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>eq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set("n", "<leader>dm", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>dh", vim.diagnostic.hide, { desc = "Hide Diagnostics" })
+vim.keymap.set("n", "<leader>ds", vim.diagnostic.show, { desc = "Show Diagnostics" })
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -159,5 +161,24 @@ vim.api.nvim_create_user_command("CaptureVertical", function(input)
 	local args = input.args or ""
 	vim.cmd("vnew | r " .. args)
 end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
+
+local zen_on = false
+local configured_fillchars = vim.opt.fillchars
+local function toggle_zen_mode()
+	zen_on = not zen_on
+	if zen_on then
+		vim.opt.number = false
+		vim.cmd("NoNeckPain")
+		vim.opt.fillchars = { eob = " ", vert = " ", horiz = " " }
+		vim.diagnostic.hide()
+	else
+		vim.opt.number = true
+		vim.cmd("NoNeckPain")
+		vim.opt.fillchars = configured_fillchars
+		vim.diagnostic.show()
+	end
+end
+vim.api.nvim_create_user_command("Zen", toggle_zen_mode, { desc = "Toggles zenmode on and off" })
+vim.keymap.set("n", "<leader>zz", toggle_zen_mode, { desc = "Toggle zen mode" })
 
 return m
