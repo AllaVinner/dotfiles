@@ -169,13 +169,12 @@ local function toggle_zen_mode()
 	if zen_on then
 		vim.opt.number = false
 		vim.cmd("NoNeckPain")
+		-- Set to remove the fill characters of the side buffers and buffer separators
 		vim.opt.fillchars = { eob = " ", vert = " ", horiz = " " }
-		vim.diagnostic.hide()
 	else
 		vim.opt.number = true
 		vim.cmd("NoNeckPain")
 		vim.opt.fillchars = configured_fillchars
-		vim.diagnostic.show()
 	end
 end
 vim.api.nvim_create_user_command("Zen", toggle_zen_mode, { desc = "Toggles zenmode on and off" })
