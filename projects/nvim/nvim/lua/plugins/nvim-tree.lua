@@ -13,7 +13,7 @@ m.default = {
 	config = function()
 		local api = require("nvim-tree.api")
 		vim.keymap.set("n", "<leader>tf", api.tree.toggle, { desc = "[T]oggle [F]older Tree" })
-		local WIDTH_RATIO = 0.8
+		local WIDTH_RATIO = 0.6
 		local HEIGHT_RATIO = 0.8
 		local function on_attach(bufnr)
 			-- This function overwrites the default mappings
@@ -44,7 +44,7 @@ m.default = {
 
 			vim.keymap.set("n", "<leader>fca", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
 			vim.keymap.set("n", "<leader>fcr", api.fs.copy.relative_path, opts("Copy Relative Path"))
-			-- vim.keymap.set("n", "q", api.tree.close, opts("Close"))
+			vim.keymap.set("n", "<ESC><ESC>", api.tree.close, opts("Close"))
 			vim.keymap.set("n", "<leader>fF", api.tree.reload, opts("Refresh"))
 			vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
 			vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
