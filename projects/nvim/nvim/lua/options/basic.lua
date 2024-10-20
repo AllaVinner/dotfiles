@@ -12,13 +12,19 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = false
 -- Remove the statusline
+-- See toggle_statusline for setting
 vim.opt.laststatus = 0
 -- vim.opt.laststatus = 2
+-- Remove row and column numbers down to the right
+-- The is visible in the statusline anyway
+vim.opt.ruler = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
 vim.opt.showmode = false
+-- Don't show recently pressed keys down to the right.
+vim.opt.showcmd = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -61,6 +67,8 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
+vim.opt.termguicolors = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -162,7 +170,8 @@ vim.api.nvim_create_user_command("CaptureVertical", function(input)
 	vim.cmd("vnew | r " .. args)
 end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
 
-local zen_on = false
+-- Zen Mode
+local zen_on = false -- toggled below
 local configured_fillchars = vim.opt.fillchars
 local function toggle_zen_mode()
 	zen_on = not zen_on
@@ -177,7 +186,22 @@ local function toggle_zen_mode()
 		vim.opt.fillchars = configured_fillchars
 	end
 end
+toggle_zen_mode()
 vim.api.nvim_create_user_command("Zen", toggle_zen_mode, { desc = "Toggles zenmode on and off" })
-vim.keymap.set("n", "<leader>zz", toggle_zen_mode, { desc = "Toggle zen mode" })
+vim.keymap.set("n", "<leader>tz", toggle_zen_mode, { desc = "Toggle zen mode" })
+
+-- Status Line
+local statusline_on = true -- Toggled bellow
+local function toggle_statusline()
+	statusline_on = not statusline_on
+	if statusline_on then
+		vim.opt.laststatus = 2
+	else
+		vim.opt.laststatus = 0
+	end
+end
+toggle_statusline()
+
+vim.keymap.set("n", "<leader>ts", toggle_statusline, { desc = "Toggle status line" })
 
 return m
