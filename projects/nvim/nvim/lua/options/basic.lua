@@ -170,38 +170,4 @@ vim.api.nvim_create_user_command("CaptureVertical", function(input)
 	vim.cmd("vnew | r " .. args)
 end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
 
--- Zen Mode
-local zen_on = false -- toggled below
-local configured_fillchars = vim.opt.fillchars
-local function toggle_zen_mode()
-	zen_on = not zen_on
-	if zen_on then
-		vim.opt.number = false
-		vim.cmd("NoNeckPain")
-		-- Set to remove the fill characters of the side buffers and buffer separators
-		vim.opt.fillchars = { eob = " ", vert = " ", horiz = " " }
-	else
-		vim.opt.number = true
-		vim.cmd("NoNeckPain")
-		vim.opt.fillchars = configured_fillchars
-	end
-end
-toggle_zen_mode()
-vim.api.nvim_create_user_command("Zen", toggle_zen_mode, { desc = "Toggles zenmode on and off" })
-vim.keymap.set("n", "<leader>tz", toggle_zen_mode, { desc = "Toggle zen mode" })
-
--- Status Line
-local statusline_on = true -- Toggled bellow
-local function toggle_statusline()
-	statusline_on = not statusline_on
-	if statusline_on then
-		vim.opt.laststatus = 2
-	else
-		vim.opt.laststatus = 0
-	end
-end
-toggle_statusline()
-
-vim.keymap.set("n", "<leader>ts", toggle_statusline, { desc = "Toggle status line" })
-
 return m
