@@ -6,6 +6,7 @@ lazy.setup_plugins({
 	require("plugins.treesitter").default,
 	require("plugins.comment").default,
 	require("plugins.gitsigns").default,
+	require("plugins.neogit").default,
 	require("plugins.which-key").default,
 	require("plugins.noice").default,
 	require("plugins.telescope").default,
