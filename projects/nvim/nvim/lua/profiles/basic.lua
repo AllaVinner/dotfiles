@@ -29,6 +29,7 @@ lazy.setup_plugins({
 	-- require("plugins.no-neck-pain").default,
 	require("plugins.nvim-tree").default,
 	require("plugins.zen-mode").default,
+	require("plugins.symbols").default,
 })
 
 require("options.basic")
