@@ -105,6 +105,11 @@ vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diag
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("t", "<C-c>", "<C-\\><C-n>", { desc = "Exit terminal mode. Works in tmux." })
 
+-- Execute singular Lua lines
+vim.keymap.set("n", "<leader>lf", "<cmd>source %<CR>", { desc = "[L]ua execute [F]ile" })
+vim.keymap.set("n", "<leader>ll", ":.lua<CR>", { desc = "[L]ua execut [L]ine" })
+vim.keymap.set("v", "<leader>ll", ":lua<CR>", { desc = "[L]ua execute visual" })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
