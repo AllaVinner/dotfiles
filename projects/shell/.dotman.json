@@ -1,0 +1,10 @@
+{
+    "links": {
+        ".zshrc": {
+            "source": "~/.zshrc"
+        },
+        ".bashrc": {
+            "source": "~/.bashrc"
+        }
+    }
+}
