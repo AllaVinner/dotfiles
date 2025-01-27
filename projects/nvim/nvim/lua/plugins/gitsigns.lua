@@ -67,6 +67,7 @@ m.default = {
 				end, { desc = "[G]it [B]lame full" })
 				map("n", "<leader>gD", gitsigns.diffthis, { desc = "[G]it [D]iff" })
 				map("n", "<leader>gt", gitsigns.toggle_signs, { desc = "[G]it [T]oggle signs" })
+				map("n", "<leader>tg", gitsigns.toggle_signs, { desc = "[T]oggle [G]it signs" })
 				-- map("n", "<leader>hD", function()
 				-- 	gitsigns.diffthis("~")
 				-- end)
