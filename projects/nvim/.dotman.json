@@ -1,0 +1,7 @@
+{
+    "links": {
+        "nvim": {
+            "source": "~/.config/nvim"
+        }
+    }
+}
