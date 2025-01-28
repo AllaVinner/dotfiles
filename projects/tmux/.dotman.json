@@ -1,0 +1,7 @@
+{
+    "links": {
+        "tmux": {
+            "source": "~/.config/tmux"
+        }
+    }
+}
