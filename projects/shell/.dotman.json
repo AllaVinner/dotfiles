@@ -5,6 +5,9 @@
         },
         ".bashrc": {
             "source": "~/.bashrc"
+        },
+        "shellrc.sh": {
+            "source": "~/.config/shell/shellrc.sh"
         }
     }
 }

@@ -12,11 +12,13 @@ export EDITOR="nvim"
 
 export R_ENVIRON_USER="$HOME/.config/R/.Renviron"
 env_path="$HOME/.config/keys/openai.env"
+export PATH="~/bin:$PATH"
 
 if test -f $env_path; then
     export $(grep -v '^#' $env_path | xargs -0)
 fi
 
+alias spv='source ~/documents/dotfiles/projects/py-global-venv/global-venv/bin/activate'
 alias n="nvim"
 alias n.="nvim ."
 alias nz="nvim $HOME/.zshrc"
@@ -39,4 +41,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cdb="cd $OLDPWD"
 alias pecho="tr ':' '\n' <<< $PATH" 
+
+alias treea="tree -a -I .git/"
 
