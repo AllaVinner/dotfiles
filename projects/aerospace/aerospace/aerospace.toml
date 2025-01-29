@@ -109,7 +109,7 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # Toggle the fullscreen mode for the focused window
-alt-shift-f = "fullscreen"
+alt-f = "fullscreen"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
