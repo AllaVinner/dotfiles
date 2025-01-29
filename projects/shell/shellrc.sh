@@ -1,4 +1,3 @@
-
 export FZF_DEFAULT_COMMAND="fd --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
@@ -20,14 +19,14 @@ fi
 
 alias n="nvim"
 alias n.="nvim ."
-alias nz="nvim ~/.zshrc"
-alias ni="nvim ~/.config/nvim/init.lua -c 'cd $HOME/.config/nvim'"
-alias nt="nvim ~/.config/tmux/tmux.conf -c 'cd $HOME/.config/tmux'"
+alias nz="nvim $HOME/.zshrc"
+alias ni="nvim $HOME/.config/nvim/init.lua -c 'cd $HOME/.config/nvim'"
+alias nt="nvim $HOME/.config/tmux/tmux.conf -c 'cd $HOME/.config/tmux'"
 alias nf="nvim \$(fzf)"
 alias nvimf="nvim \$(fzf)"
 
 alias s="source"
-alias sz="source ~/.zshrc"
+alias sz="source $HOME/.zshrc"
 
 # Convinience aliases
 alias python="python3"
