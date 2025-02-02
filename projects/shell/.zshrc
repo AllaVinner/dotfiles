@@ -1,6 +1,6 @@
 
 # Source shared shell rc
-shellrc = "~/.config/shell/shellrc.sh" 
+shellrc="$HOME/.config/shell/shellrc.sh" 
 if [ -f $shellrc ]; then
     source $shellrc
 fi
