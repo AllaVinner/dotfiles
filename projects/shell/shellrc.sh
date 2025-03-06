@@ -40,7 +40,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cdb="cd $OLDPWD"
-alias pecho="tr ':' '\n' <<< $PATH" 
+alias pecho='tr ":" "\n" <<< $PATH'
 
 alias treea="tree -a -I .git/"
 
