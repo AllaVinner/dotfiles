@@ -1,0 +1,5 @@
+[dotfiles]
+".zshrc" = "~/.zshrc"
+".bashrc" = "~/.bashrc"
+"shellrc.sh" = "~/.config/shell/shellrc.sh"
+
