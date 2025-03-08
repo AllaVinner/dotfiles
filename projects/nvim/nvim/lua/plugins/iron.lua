@@ -59,8 +59,8 @@ return {
 			vim.keymap.set("n", "<space>rR", "<cmd>IronRestart<cr>", { desc = "[R]EPL [R]restart" })
 			-- vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>", { desc = "[R]EPL [F]ocus" })
 			vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>", { desc = "[R]EPL [H]ide" })
-			vim.keymap.set("n", "<space>rl", iron.send_line, { desc = "[R]EPL Send [L]ine" })
 			vim.keymap.set("n", "<space>rf", iron.send_file, { desc = "[R]EPL Send [F]ile" })
+			vim.keymap.set("n", "<space>rr", iron.send_line, { desc = "[R]EPL Send [L]ine" })
 			vim.keymap.set("v", "<space>rr", iron.visual_send, { desc = "[R]EPL Visual Send" })
 		end,
 	},

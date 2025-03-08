@@ -12,7 +12,9 @@ export EDITOR="nvim"
 
 export R_ENVIRON_USER="$HOME/.config/R/.Renviron"
 env_path="$HOME/.config/keys/openai.env"
-export PATH="~/bin:$PATH"
+
+PATH="$HOME/bin:$PATH"
+export PATH
 
 if test -f $env_path; then
     export $(grep -v '^#' $env_path | xargs -0)
