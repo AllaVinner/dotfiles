@@ -175,4 +175,21 @@ vim.api.nvim_create_user_command("CaptureVertical", function(input)
 	vim.cmd("vnew | r " .. args)
 end, { nargs = "?", desc = "Capture output of command and open in new buffer." })
 
+function ShowRegistersInBuffer(input)
+	vim.cmd("new")
+	vim.cmd("put =execute('registers')")
+end
+vim.api.nvim_create_user_command("ShowRegisters", ShowRegistersInBuffer, {})
+
+-----------
+--- Macros
+-----------
+
+-- NOTE: ' and " are different in vim
+-- NOTE: Copy pasting from a register does not retain special characers
+-- > "lp does. E.g. Esc will render as grayed out ^[ but actually be correct
+esc = vim.api.nvim_replace_termcodes("<Esc>", true, true, true)
+vim.fn.setreg("l", "iThis is a simple macro" .. esc .. "o<80>kb<Esc>EscESCasdfadsf")
+vim.fn.setreg("l", "Th€ý5is sdfas dfosadfasdciwjoiasdfasdhviwypp")
+
 return m
