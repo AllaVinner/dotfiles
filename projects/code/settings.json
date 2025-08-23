@@ -1,11 +1,15 @@
 {
-    "window.commandCenter": 1,
-    "python.formating.provider": "ruff",
-    "python.linting.mypyEnabled": true,
-    "editor.formatOnSave": true,
+    "window.commandCenter": true,
     "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
     "editor.minimap.enabled": true,
     "editor.fontSize": 14,
+    "editor.stickyScroll.enabled": true,
     "explorer.confirmDelete": false,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.inlineSuggest.enabled": false,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": 3,
+    "workbench.editor.limit.value": 3,
+    "workbench.editor.limit.excludeDirty": true
 }
