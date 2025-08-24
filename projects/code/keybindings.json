@@ -22,12 +22,14 @@
     // ============== Send Code to REPL ====================
     {
         "key": "shift+enter",
-        "command": "editor.debug.action.selectionToRepl"
+        "command": "editor.debug.action.selectionToRepl",
+        "when": "editorTextFocus && inDebugMode"
     },
     {
         "key": "shift+enter",
         "command": "jupyter.execSelectionInteractive",
-        "when": "editorTextFocus && isWorkspaceTrusted && jupyter.ownsSelection && !findInputFocussed && !isCompositeNotebook && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python' && !inDebugMode"
+        "when": "editorTextFocus && isWorkspaceTrusted && !findInputFocussed && !isCompositeNotebook && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python' && !inDebugMode"
+        // Use jupter.ownsSelect to distinguies when to send to jupyter REPL or python REPL.
     },
     {
         "key": "shift+enter",
