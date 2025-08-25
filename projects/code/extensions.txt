@@ -13,4 +13,5 @@ ms-vscode.test-adapter-converter
 njpwerner.autodocstring
 vscodevim.vim
 mechatroner.rainbow-csv
+ms-python.isort
 
