@@ -35,5 +35,22 @@
         "key": "shift+enter",
         "command": "-jupyter.execSelectionInteractive",
         "when": "editorTextFocus && isWorkspaceTrusted && jupyter.ownsSelection && !findInputFocussed && !isCompositeNotebook && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
-    }
+    },
+    // =============== Switch ctrl to alt =====================
+    {
+            "key": "alt+p",
+            "command": "workbench.action.quickOpen"
+        },
+        {
+            "key": "ctrl+p",
+            "command": "-workbench.action.quickOpen"
+        },
+        {
+            "key": "alt+n",
+            "command": "workbench.action.files.newUntitledFile"
+        },
+        {
+            "key": "ctrl+n",
+            "command": "-workbench.action.files.newUntitledFile"
+        }
 ]
