@@ -53,7 +53,7 @@
         "key": "ctrl+n",
         "command": "-workbench.action.files.newUntitledFile"
     },
-    // Editoro
+    // ================ Liniting ======================
     {
         "key": "alt+l",
         "command": "editor.action.formatDocument",
@@ -67,5 +67,27 @@
     {
         "key": "alt+o",
         "command": "editor.action.organizeImports"
+    },
+    // ============== Diff File Navigation ====================
+    {
+        "key": "cmd+n",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "workbench.action.compareEditor.nextChange",
+                {
+                    "command": "cursorMove",
+                    "args": {
+                        "to": "viewPortCenter"
+                    }
+                }
+            ]
+        },
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "cmd+shift+n",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
     }
 ]
