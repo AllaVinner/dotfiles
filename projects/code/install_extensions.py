@@ -22,7 +22,7 @@ def main():
         res = subprocess.run(
             ["code", "--install-extension", extension],
             capture_output=True,
-            check=True,
+            check=sys.plarform == "win32",
         )
 
 
