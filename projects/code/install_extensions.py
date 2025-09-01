@@ -20,7 +20,9 @@ def main():
     for extension in extensions:
         print(f"Installing extensions: ", extension)
         res = subprocess.run(
-            ["code", "--install-extension", extension], capture_output=True, check=True, shell=True
+            ["code", "--install-extension", extension],
+            capture_output=True,
+            check=True,
         )
 
 
