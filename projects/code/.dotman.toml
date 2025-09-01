@@ -1,9 +1,9 @@
 [dotfiles."keybindings.json".links]
-windows = "~/Library/Application Support/Code/User/keybindings.json"
+windows = "~/AppData/Roaming/Code/User/keybindings.json"
 mac = "~/Library/Application Support/Code/User/keybindings.json"
 linux = "~/.vscode-server/data/Machine/keybindings.json"
 
 [dotfiles."settings.json".links]
-windows = "~/Library/Application Support/Code/User/settings.json"
+windows = "~/AppData/Roaming/Code/User/settings.json"
 mac = "~/Library/Application Support/Code/User/settings.json"
 linux = "~/.vscode-server/data/User/settings.json"
