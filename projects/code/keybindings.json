@@ -17,7 +17,8 @@
     },
     {
         "key": "shift+k",
-        "command": "editor.action.showDefinitionPreviewHover"
+        "command": "editor.action.showDefinitionPreviewHover",
+        "when": "editorTextFocus"
     },
     // ============== Send Code to REPL ====================
     {
@@ -44,10 +45,6 @@
     {
         "key": "ctrl+p",
         "command": "-workbench.action.quickOpen"
-    },
-    {
-        "key": "alt+n",
-        "command": "workbench.action.files.newUntitledFile"
     },
     {
         "key": "ctrl+n",
@@ -87,6 +84,27 @@
     },
     {
         "key": "cmd+shift+n",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    }, 
+    {
+        "key": "alt+n",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "workbench.action.compareEditor.nextChange",
+                {
+                    "command": "cursorMove",
+                    "args": {
+                        "to": "viewPortCenter"
+                    }
+                }
+            ]
+        },
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "alt+shift+n",
         "command": "workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
     }
