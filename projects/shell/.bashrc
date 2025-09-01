@@ -20,4 +20,5 @@ fi
 # Bash specific setup
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
+eval "$(teleport activate --shell bash)"
 
