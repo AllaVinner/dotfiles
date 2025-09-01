@@ -18,11 +18,12 @@ def main():
         if not line.startswith("#") and line != ""
     ]
     for extension in extensions:
-        print(f"Installing extensions: ", extension)
+        print(f"Installing extensions: '{extension}'")
         res = subprocess.run(
             ["code", "--install-extension", extension],
             capture_output=True,
-            check=sys.platform == "win32",
+            check=True,
+            shell=sys.platform == "win32",
         )
 
 
