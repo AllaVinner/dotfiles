@@ -68,39 +68,17 @@
     // ============== Diff File Navigation ====================
     {
         "key": "cmd+n",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "sequence": [
-                "workbench.action.compareEditor.nextChange",
-                {
-                    "command": "cursorMove",
-                    "args": {
-                        "to": "viewPortCenter"
-                    }
-                }
-            ]
-        },
+        "command": "workbench.action.compareEditor.nextChange",
         "when": "textCompareEditorVisible"
     },
     {
         "key": "cmd+shift+n",
         "command": "workbench.action.compareEditor.previousChange",
         "when": "textCompareEditorVisible"
-    }, 
+    },
     {
         "key": "alt+n",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "sequence": [
-                "workbench.action.compareEditor.nextChange",
-                {
-                    "command": "cursorMove",
-                    "args": {
-                        "to": "viewPortCenter"
-                    }
-                }
-            ]
-        },
+        "command": "workbench.action.compareEditor.nextChange",
         "when": "textCompareEditorVisible"
     },
     {
