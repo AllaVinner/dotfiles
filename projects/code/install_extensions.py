@@ -10,15 +10,17 @@ def main():
         extension_file = Path("./extensions.txt")
     else:
         extension_file = Path(os.getcwd(), args[1])
+    with open(extension_file, "r", encoding="utf-8") as f:
+        file_content = f.read()
     extensions = [
         line
-        for line in extension_file.read_text().split("\n")
+        for line in file_content.replace("\r", "").split("\n")
         if not line.startswith("#") and line != ""
     ]
     for extension in extensions:
         print(f"Installing extensions: ", extension)
         res = subprocess.run(
-            ["code", "--install-extension", extension], capture_output=True, check=True
+            ["code", "--install-extension", extension], capture_output=True, check=True, shell=True
         )
 
 

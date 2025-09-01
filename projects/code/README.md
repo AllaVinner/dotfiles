@@ -6,6 +6,9 @@ VS-Code settings
 Extensions needs to be installed separately. 
 List them with `code --list-extensions`.
 And install them by running `python install_extensions.py`
+For PowerShell run
+`code --list-extensions | Out-File -FilePath extensions.txt -Encoding utf`
+
 
 Or by running bash script
 ```bash
