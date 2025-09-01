@@ -14,6 +14,7 @@ export R_ENVIRON_USER="$HOME/.config/R/.Renviron"
 env_path="$HOME/.config/keys/openai.env"
 
 PATH="$HOME/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 export PATH
 
 if test -f $env_path; then
