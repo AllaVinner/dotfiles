@@ -15,5 +15,5 @@ fi
 # Zsh specific setup
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
-eval "$(teleport shell)"
+eval "$(teleport activate --shell bash)"
 
