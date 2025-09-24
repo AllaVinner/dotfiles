@@ -37,6 +37,11 @@
         "command": "-jupyter.execSelectionInteractive",
         "when": "editorTextFocus && isWorkspaceTrusted && jupyter.ownsSelection && !findInputFocussed && !isCompositeNotebook && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
     },
+    {
+        "key": "shift+enter",
+        "command": "sqlite.runSelectedQuery",
+        "when": "editorTextFocus && isWorkspaceTrusted && !replaceInputFocussed && editorLangId == 'sqlite'"
+    },
     // =============== Switch ctrl to alt =====================
     {
         "key": "alt+p",
