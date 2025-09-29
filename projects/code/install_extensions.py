@@ -13,7 +13,7 @@ def main():
     with open(extension_file, "r", encoding="utf-8") as f:
         file_content = f.read()
     extensions = [
-        line
+        line.strip(u"\ufeff")
         for line in file_content.replace("\r", "").split("\n")
         if not line.startswith("#") and line != ""
     ]
