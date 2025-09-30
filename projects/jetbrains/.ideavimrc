@@ -1,0 +1,237 @@
+let mapleader=" "
+
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+set visualbell
+set noerrorbells
+set clipboard^=unnamed,unnamedplus
+set textwidth=120
+" set wrap
+
+
+" Evgeny Additions
+
+
+" List of Supported Set Commands: https://github.com/JetBrains/ideavim/wiki/set-commands
+
+""" Idea specific options
+
+set showmode
+set ideajoin
+set ideastatusicon=gray
+set ideamarks
+
+""" Custom options
+
+set number
+" set relativenumber
+
+set clipboard+=unnamedplus
+
+set timeout
+set timeoutlen=750
+
+" Do incremental searching
+set incsearch
+
+" Case insensitive searching UNLESS /C or capital in search
+set ignorecase
+set smartcase
+
+" Always keep at least 5 lines above or below the cursor (unless EOF)
+set scrolloff=5
+
+""" Mappings
+
+" Better defaults
+map <space> <Nop>
+map <bs> <Nop>
+" This is great, get to start and end of line
+map E $
+map B ^
+
+" Toggle relative line numbers
+map <leader>tl :set rnu!<cr>
+
+" When pasting in visual/select mode, don't replace the main register with the selected text
+xmap <leader>p \"_dP
+
+" I really like this
+" Center the line after scrolling up/down
+nmap <C-u> <C-u>zz
+nmap <C-d> <C-d>zz
+
+" Center the line when navigating between search hits
+nmap n nzz
+nmap N Nzz
+
+" Don't know what this does?
+" Better indenting
+vmap > >gv
+vmap < <gv
+
+" Cancel search highlighting with ESC
+" nnoremap <Esc> :nohlsearch<Bar>:echo<CR>
+
+" Redo
+map U <C-R>
+
+" Replace the word under the cursor
+"nmap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+
+""" Map IntelliJ's actions
+
+" Goto Project
+nmap - <Action>(ActivateProjectToolWindow)
+
+" Move lines down/up
+nmap <A-j> <Action>(MoveLineDown)
+nmap <A-k> <Action>(MoveLineUp)
+vmap <A-j> <Action>(MoveLineDown)
+vmap <A-k> <Action>(MoveLineUp)
+
+" Buffers
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+nmap <leader>bk <Action>(KeepTabOpen)
+nmap <leader>bx <Action>(CloseContent)
+nmap <leader>bX <Action>(CloseAllUnpinnedEditors)
+" map <leader>B <Action>(Switcher)
+
+" Git
+nmap [h <Action>(VcsShowPrevChangeMarker)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+" Goto Git
+nmap <leader>gg <Action>(ActivateCommitToolWindow)
+nmap <leader>gb <Action>(Annotate)
+nmap <leader>gp <Action>(Vcs.UpdateProject)
+nmap <leader>gP <Action>(Vcs.Push)
+
+" LSP-like actions
+map <leader>r <Action>(RefactoringMenu)
+vmap <leader>s <Action>(SurroundWith)
+" imap <C-i> <Action>(ParameterInfo)
+imap <C-y> <Action>(ParameterInfo)
+" imap <C-.> <Action>(CodeCompletionGroup)
+" imap <C-.> <Action>(CodeCompletion) " basic completion
+" imap <Action>(ClassNameCompletion) " second basic completion
+" imap <Action>(SmartTypeCompletion) " type-matching completion
+" imap <Action>(EditorCompleteStatement) " complete current statement
+map gI <Action>(GotoImplementation)
+map gr <Action>(ShowUsages)
+
+" Debugging
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dB <Action>(AddConditionalBreakpoint)
+map <leader>dl <Action>(ViewBreakpoints)
+map <leader>dm <Action>(XDebugger.MuteBreakpoints)
+map <leader>dc <Action>(Resume)
+map <leader>dr <Action>(RunToCursor)
+map <leader>dx <Action>(Stop)
+map <leader>de <Action>(EvaluateExpression)
+map <leader>di <Action>(StepInto)
+map <leader>dI <Action>(StepOut)
+map <leader>do <Action>(StepOver)
+map <leader>dP <Action>(ShowExecutionPoint)
+
+" Tests
+map <leader>tr <Action>(RunClass)
+" Is there a run function?
+
+"map <leader>na <Action>(ActivateNotificationsToolWindow)
+"map <leader>nd <Action>(ClearAllNotifications)
+
+" Telescope-like action
+nmap <leader>sf> <Action>(GotoFile)
+nmap <leader><Space> <Action>(RecentFiles)
+nmap <leader>sb <Action>(Switcher)
+nmap <leader>sg <Action>(TextSearchAction)
+"nmap <leader>sg <Action>(FindInPath)
+"nmap <leader>sf <Action>(Find)
+nmap <leader>sc <Action>(PasteMultiple)
+nmap <leader>ss <Action>(GotoSymbol)
+nmap <leader>st <Action>(ActivateTODOToolWindow)
+
+" Diagnostics
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+nmap <leader>lQ <Action>(ActivateProblemsViewToolWindow)
+
+" TODOs
+nmap [t <Action>(PreviousOccurence)
+nmap ]t <Action>(NextOccurence)
+
+" Goto previous/next method
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
+
+" Convert case (plugin)
+vmap <leader>C <Action>(me.laria.code.idea_caseconv.convert_case_menu)
+
+" Harpoon (plugin)
+nmap <M-h><M-l> <Action>(ShowHarpoon)
+nmap <M-h><M-m> <Action>(AddToHarpoon)
+nmap <leader>1 <Action>(GotoHarpoon1)
+nmap <leader>2 <Action>(GotoHarpoon2)
+nmap <leader>3 <Action>(GotoHarpoon3)
+nmap <leader>4 <Action>(GotoHarpoon4)
+nmap <leader>5 <Action>(GotoHarpoon5)
+
+" Fix back/forward navigation
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+""" IdeaVim plugins
+" https://jb.gg/ideavim-plugins
+
+" https://github.com/machakann/vim-highlightedyank/blob/master/doc/highlightedyank.txt
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "250"
+let g:highlightedyank_highlight_color = "rgba(250, 170, 15, 150)"
+
+" https://github.com/tpope/vim-commentary/blob/master/doc/commentary.txt
+Plug 'tpope/vim-commentary'
+"autocmd FileType apache setlocal commentstring=#\ %s
+
+" https://github.com/tpope/vim-surround/blob/master/doc/surround.txt
+Plug 'tpope/vim-surround'
+
+
+
+
